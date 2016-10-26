@@ -150,7 +150,7 @@ var consoleEncoding;
 var queue = async.queue(function(cmd, cb) {
 
   var opts = { env: process.env, cwd: process.env.TEMP };
-  if (opts.env.PATH.indexOf('system32') === -1) {
+  if (opts.env.PATH && opts.env.PATH.indexOf('system32') === -1) {
     opts.env.PATH += ';' + process.env.WINDIR + "\\system32";
     opts.env.PATH += ';' + process.env.WINDIR + "\\system32\\wbem";
   }
